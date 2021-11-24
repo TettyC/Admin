@@ -13,3 +13,14 @@ export const login = (data) => {
     data
   })
 }
+
+/**
+ * @description 获取用户信息
+ * @date 24/11/2021
+ * @return {*}
+ */
+export const getUserInfo = () => {
+  return request({
+    url: '/sys/profile'
+  })
+}
