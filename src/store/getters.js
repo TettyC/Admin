@@ -1,3 +1,5 @@
+import variables from '@/styles/variables.scss'
+
 // 快捷访问
 
 const getters = {
@@ -8,7 +10,9 @@ const getters = {
    * @date 24/11/2021
    * @param {*} state
    */
-  hasUserInfo: (state) => JSON.stringify(state.user.userInfo) !== '{}'
+  hasUserInfo: (state) => JSON.stringify(state.user.userInfo) !== '{}',
+  cssVar: (state) => variables,
+  sidebarOpened: (state) => !state.app.sidebarOpened
 }
 
 export default getters

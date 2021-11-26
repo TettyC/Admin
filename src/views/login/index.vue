@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import SvgIcon from '@/components/SvgIcon/index.vue'
 import { validatePassword } from './rules'
 // 数据源
 const loginForm = ref({

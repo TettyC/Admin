@@ -1,6 +1,8 @@
 <script setup>
 import { Setting } from '@element-plus/icons'
 import { useStore } from 'vuex'
+import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 
 const store = useStore()
 const logout = () => {
@@ -10,7 +12,11 @@ const logout = () => {
 
 <template>
   <div class="navbar">
+    <Hamburger class="hamburger" />
+    <Breadcrumb class="breadcrumb" />
+
     <div class="right-menu">
+      <!-- 头像 -->
       <el-dropdown class="avatar-container" triggle="click">
         <div class="avatar-wrapper">
           <el-avatar
@@ -26,10 +32,7 @@ const logout = () => {
             <router-link to="/">
               <el-dropdown-item>主页</el-dropdown-item>
             </router-link>
-            <a
-              target="__blank"
-              href="https://coding.imooc.com/class/542.html#Prchor"
-            >
+            <a target="__blank" href="https://coding.imooc.com/class/542.html">
               <el-dropdown-item>课程主页</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout"
@@ -50,6 +53,22 @@ const logout = () => {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, $alpha: 0.08);
 
+  .hamburger {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    // hover动画
+    transition: background 0.5s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .breadcrumb {
+    float: left;
+  }
   .right-menu {
     display: flex;
     align-items: center;
