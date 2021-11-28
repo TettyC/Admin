@@ -3,6 +3,7 @@ import { Setting } from '@element-plus/icons'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import LangSelect from '../../components/langSelect/index.vue'
 
 const store = useStore()
 const logout = () => {
@@ -16,6 +17,7 @@ const logout = () => {
     <Breadcrumb class="breadcrumb" />
 
     <div class="right-menu">
+      <LangSelect class="right-menu-item"></LangSelect>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" triggle="click">
         <div class="avatar-wrapper">
@@ -30,14 +32,14 @@ const logout = () => {
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item>主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
             </router-link>
             <a target="__blank" href="https://coding.imooc.com/class/542.html">
-              <el-dropdown-item>课程主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout"
-              >退出登录</el-dropdown-item
-            >
+            <el-dropdown-item divided @click="logout">{{
+              $t('msg.navBar.logout')
+            }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -74,6 +76,17 @@ const logout = () => {
     align-items: center;
     float: right;
     padding-right: 16px;
+
+    ::v-deep .right-menu-item {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     ::v-deep .avatar-container {
       cursor: pointer;

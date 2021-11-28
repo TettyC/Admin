@@ -11,8 +11,9 @@ const getters = {
    * @param {*} state
    */
   hasUserInfo: (state) => JSON.stringify(state.user.userInfo) !== '{}',
-  cssVar: (state) => variables,
-  sidebarOpened: (state) => state.app.sidebarOpened
+  cssVar: () => variables,
+  sidebarOpened: (state) => state.app.sidebarOpened,
+  language: (state) => state.app.language
 }
 
 export default getters

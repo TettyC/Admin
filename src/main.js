@@ -6,9 +6,13 @@ import store from './store'
 import '@/styles/index.scss'
 // 导入 svgIcon
 import installIcons from '@/icons'
+// 全局安装ElementPlus
+import installElementPlus from '@/plugins/element'
 // 导入路由鉴权
-import './permission'
+import '@/permission'
+import i18n from '@/i18n'
 
 const app = createApp(App)
 installIcons(app)
-app.use(store).use(router).mount('#app')
+installElementPlus(app)
+app.use(store).use(router).use(i18n).mount('#app')

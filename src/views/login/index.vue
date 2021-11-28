@@ -3,18 +3,22 @@ import { ref } from 'vue'
 import { useStore } from 'vuex'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import { validatePassword } from './rules'
+import LangSelect from '@/components/langSelect/index.vue'
+import { useI18n } from 'vue-i18n'
 // 数据源
 const loginForm = ref({
   username: 'super-admin',
   password: '123456'
 })
+
+const i18n = useI18n()
 // 验证规则
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名不能为空'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [
@@ -65,7 +69,8 @@ const handleLogin = () => {
       :rules="loginRules"
     >
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <LangSelect class="lang-select" />
       </div>
 
       <!-- username -->
@@ -107,8 +112,10 @@ const handleLogin = () => {
         style="width: 100%; margin-bottom: 30px"
         :loading="loading"
         @click="handleLogin"
-        >登录</el-button
+        >{{ $t('msg.login.loginBtn') }}</el-button
       >
+
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
@@ -154,6 +161,12 @@ $cursor: #fff;
         caret-color: $cursor;
       }
     }
+
+    .tips {
+      color: #fff;
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   .svg-container {
@@ -172,6 +185,17 @@ $cursor: #fff;
       margin: 0 auto 40px auto;
       text-align: center;
       font-weight: bold;
+    }
+
+    .lang-select {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      background-color: #fff;
+      font-size: 22px;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
 
