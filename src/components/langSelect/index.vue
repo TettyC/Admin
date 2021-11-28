@@ -34,9 +34,11 @@ const handleSetLanguage = (lang) => {
     trigger="click"
     @command="handleSetLanguage"
   >
+    <!-- 图标 -->
     <el-tooltip content="国际化" :effect="effect">
       <SvgIcon icon="language"></SvgIcon>
     </el-tooltip>
+    <!-- menu -->
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item :disabled="language === 'zh'" command="zh"

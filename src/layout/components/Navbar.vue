@@ -3,7 +3,8 @@ import { Setting } from '@element-plus/icons'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
-import LangSelect from '../../components/langSelect/index.vue'
+import LangSelect from '@/components/langSelect/index.vue'
+import ThemeSelect from '@/components/ThemeSelect/index.vue'
 
 const store = useStore()
 const logout = () => {
@@ -17,6 +18,7 @@ const logout = () => {
     <Breadcrumb class="breadcrumb" />
 
     <div class="right-menu">
+      <ThemeSelect class="right-menu-item"></ThemeSelect>
       <LangSelect class="right-menu-item"></LangSelect>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" triggle="click">
