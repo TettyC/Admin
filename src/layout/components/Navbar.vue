@@ -5,6 +5,7 @@ import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import LangSelect from '@/components/langSelect/index.vue'
 import ThemeSelect from '@/components/ThemeSelect/index.vue'
+import Screenfull from '@/components/Screenfull/index.vue'
 
 const store = useStore()
 const logout = () => {
@@ -18,6 +19,7 @@ const logout = () => {
     <Breadcrumb class="breadcrumb" />
 
     <div class="right-menu">
+      <Screenfull class="right-menu-item"></Screenfull>
       <ThemeSelect class="right-menu-item"></ThemeSelect>
       <LangSelect class="right-menu-item"></LangSelect>
       <!-- 头像 -->
