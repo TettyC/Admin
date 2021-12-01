@@ -16,6 +16,7 @@ const getters = {
 
   sidebarOpened: (state) => state.app.sidebarOpened,
   language: (state) => state.app.language,
+  tagsViewList: (state) => state.app.tagsViewList,
 
   cssVar: (state) => ({
     ...state.theme.variables,

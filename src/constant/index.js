@@ -9,3 +9,5 @@ export const LANG = 'language'
 export const DEFAULT_COLOR = '#409eff'
 // 主题色保存的key
 export const MAIN_COLOR = 'mainColor'
+// TagViews
+export const TAG_VIEWS = 'tagViews'
