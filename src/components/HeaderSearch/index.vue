@@ -87,12 +87,15 @@ watchSwitchLang(() => {
 </script>
 
 <template>
-  <div
-    class="header-search"
-    :class="{ show: isShow }"
-    @click.stop="onShowClick"
-  >
-    <SvgIcon className="search-icon" icon="search"></SvgIcon>
+  <div class="header-search" :class="{ show: isShow }">
+    <el-tooltip :content="$t('msg.navBar.headerSearch')">
+      <SvgIcon
+        id="guide-search"
+        class="search-icon"
+        icon="search"
+        @click.stop="onShowClick"
+      ></SvgIcon>
+    </el-tooltip>
     <el-select
       ref="searchSelectRef"
       class="search-select"
@@ -117,7 +120,8 @@ watchSwitchLang(() => {
 <style lang="scss" scoped>
 .header-search {
   font-size: 0 !important;
-  ::v-deep .search-icon {
+  .search-icon {
+    display: inline-block;
     cursor: pointer;
     font-size: 18px;
     vertical-align: middle;

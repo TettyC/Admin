@@ -12,6 +12,7 @@ import TagsView from '../components/TagsView/index.vue'
   >
     <!-- 左侧 menu -->
     <Sidebar
+      id="guide-sidebar"
       class="sidebar-container"
       :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     ></Sidebar>
@@ -20,7 +21,7 @@ import TagsView from '../components/TagsView/index.vue'
         <!-- 顶部 navbar -->
         <Navbar></Navbar>
         <!-- tags -->
-        <TagsView></TagsView>
+        <TagsView id="guide-tag"></TagsView>
       </div>
       <!-- 内容区 -->
       <AppMain></AppMain>

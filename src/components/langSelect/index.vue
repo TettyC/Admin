@@ -35,8 +35,8 @@ const handleSetLanguage = (lang) => {
     @command="handleSetLanguage"
   >
     <!-- 图标 -->
-    <el-tooltip content="国际化" :effect="effect">
-      <SvgIcon icon="language"></SvgIcon>
+    <el-tooltip :content="$t('msg.navBar.lang')" :effect="effect">
+      <SvgIcon id="guide-lang" icon="language"></SvgIcon>
     </el-tooltip>
     <!-- menu -->
     <template #dropdown>

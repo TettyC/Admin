@@ -27,8 +27,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div @click="onToggle">
-    <SvgIcon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"></SvgIcon>
+  <div>
+    <el-tooltip :content="$t('msg.navBar.screenfull')">
+      <SvgIcon
+        id="guide-full"
+        :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
+        @click="onToggle"
+      ></SvgIcon
+    ></el-tooltip>
   </div>
 </template>
 

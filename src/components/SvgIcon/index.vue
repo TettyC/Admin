@@ -32,17 +32,19 @@ const iconName = computed(() => `#icon-${props.icon}`)
 </script>
 
 <template>
-  <!-- 展示外部图标 -->
-  <div
-    v-if="isExternal"
-    class="svg-external-icon svg-icon"
-    :style="styleExternalIcon"
-    :class="className"
-  ></div>
-  <!-- 展示内部图标 -->
-  <svg v-else class="svg-icon" :class="className" aria-hidden="true">
-    <use :xlink:href="iconName" />
-  </svg>
+  <div>
+    <!-- 展示外部图标 -->
+    <div
+      v-if="isExternal"
+      class="svg-external-icon svg-icon"
+      :style="styleExternalIcon"
+      :class="className"
+    ></div>
+    <!-- 展示内部图标 -->
+    <svg v-else class="svg-icon" :class="className" aria-hidden="true">
+      <use :xlink:href="iconName" />
+    </svg>
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -15,7 +15,7 @@ const toggleClick = () => {
 
 <template>
   <div class="hamburger-container" @click="toggleClick">
-    <SvgIcon class="hamburger" :icon="icon"></SvgIcon>
+    <SvgIcon id="guide-hamburger" class="hamburger" :icon="icon"></SvgIcon>
   </div>
 </template>
 

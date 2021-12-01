@@ -7,6 +7,7 @@ import LangSelect from '@/components/langSelect/index.vue'
 import ThemeSelect from '@/components/ThemeSelect/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
 import HeaderSearch from '@/components/HeaderSearch/index.vue'
+import Guide from '@/components/Guide/index.vue'
 
 const store = useStore()
 const logout = () => {
@@ -17,9 +18,10 @@ const logout = () => {
 <template>
   <div class="navbar">
     <Hamburger class="hamburger" />
-    <Breadcrumb class="breadcrumb" />
+    <Breadcrumb id="guide-breadcrumb" class="breadcrumb" />
 
     <div class="right-menu">
+      <Guide class="right-menu-item"></Guide>
       <HeaderSearch class="right-menu-item"></HeaderSearch>
       <Screenfull class="right-menu-item"></Screenfull>
       <ThemeSelect class="right-menu-item"></ThemeSelect>
@@ -62,7 +64,7 @@ const logout = () => {
   box-shadow: 0 1px 4px rgba(0, 21, 41, $alpha: 0.08);
 
   .hamburger {
-    line-height: 46px;
+    line-height: 34px;
     height: 100%;
     float: left;
     cursor: pointer;

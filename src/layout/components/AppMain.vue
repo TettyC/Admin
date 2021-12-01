@@ -41,7 +41,6 @@ watch(
   }
 )
 
-console.log(store.getters.tagsViewList)
 watchSwitchLang(() => {
   store.getters.tagsViewList.forEach((route, index) => {
     store.commit('app/changeTagsView', {

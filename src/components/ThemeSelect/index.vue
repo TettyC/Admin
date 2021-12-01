@@ -20,7 +20,7 @@ const handleSetTheme = () => {
   >
     <!-- 图标 -->
     <el-tooltip :content="$t('msg.navBar.themeChange')">
-      <SvgIcon icon="change-theme"></SvgIcon>
+      <SvgIcon id="guide-theme" icon="change-theme"></SvgIcon>
     </el-tooltip>
     <!-- menu -->
     <template #dropdown>
