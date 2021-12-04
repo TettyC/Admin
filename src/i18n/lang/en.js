@@ -83,6 +83,7 @@ export default {
     sidebarDesc: 'Project function menu'
   },
   profile: {
+    welcome: 'Hello',
     muted:
       '"Vue3 rewrite vue-element-admin, realize the back-end front-end integrated solution" project demonstration',
     introduce: 'Introduce',
