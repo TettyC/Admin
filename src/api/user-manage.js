@@ -14,6 +14,17 @@ export const getUserManageList = (data) => {
 }
 
 /**
+ * @description 获取所有用户列表数据
+ * @date 05/12/2021
+ * @return {*}
+ */
+export const getUserManageAllList = () => {
+  return request({
+    url: '/user-manage/all-list'
+  })
+}
+
+/**
  * @description 批量上传
  * @date 04/12/2021
  * @param {*} data
