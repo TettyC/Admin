@@ -25,6 +25,17 @@ export const getUserManageAllList = () => {
 }
 
 /**
+ * @description 获取指定用户详情
+ * @date 09/12/2021
+ * @return {*}
+ */
+export const userDetail = (id) => {
+  return request({
+    url: `/user-manage/detail/${id}`
+  })
+}
+
+/**
  * @description 批量上传
  * @date 04/12/2021
  * @param {*} data

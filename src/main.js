@@ -10,6 +10,8 @@ import installIcons from '@/icons'
 import installElementPlus from '@/plugins/element'
 // 全局属性fliter
 import installFilter from '@/filters'
+// 自定义指令
+import installDirectives from '@/directives'
 // 导入路由鉴权
 import '@/permission'
 import i18n from '@/i18n'
@@ -17,5 +19,7 @@ import i18n from '@/i18n'
 const app = createApp(App)
 installIcons(app)
 installFilter(app)
+installDirectives(app)
 installElementPlus(app)
+
 app.use(store).use(router).use(i18n).mount('#app')

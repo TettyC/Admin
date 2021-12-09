@@ -47,6 +47,11 @@ const onToExcel = () => {
   exportToExcelVisible.value = true
 }
 
+// 查看按钮 点击事件
+const onShowClick = (id) => {
+  router.push(`/user/info/${id}`)
+}
+
 // 删除用户
 const i18n = useI18n()
 const onRemoveClick = (row) => {
@@ -117,9 +122,12 @@ onActivated(getListData)
           width="300"
         >
           <template #default="{ row }">
-            <el-button type="primary" size="mini">{{
-              $t('msg.excel.show')
-            }}</el-button>
+            <el-button
+              type="primary"
+              size="mini"
+              @click="onShowClick(row._id)"
+              >{{ $t('msg.excel.show') }}</el-button
+            >
             <el-button type="info" size="mini">{{
               $t('msg.excel.showRole')
             }}</el-button>
