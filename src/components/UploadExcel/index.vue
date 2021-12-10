@@ -153,7 +153,7 @@ const generateData = (excelData) => {
     justify-content: center;
     align-items: center;
     color: #bbb;
-    ::v-deep .el-icon {
+    :deep(.el-icon) {
       font-size: 60px;
       display: block;
     }
