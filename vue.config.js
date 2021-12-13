@@ -3,7 +3,7 @@ const path = require('path')
 const resolve = (dir) => path.join(__dirname, dir)
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? './admin/' : '/',
   chainWebpack(config) {
     config.module.rule('svg').exclude.add(resolve('src/icons')).end()
     config.module
