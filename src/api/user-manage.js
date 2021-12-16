@@ -59,3 +59,32 @@ export const deleteUser = (id) => {
     url: `/user-manage/detele/${id}`
   })
 }
+
+/**
+ * @description 为员工分配角色
+ * @date 16/12/2021
+ * @param {*} id
+ * @param {*} data
+ * @return {*}
+ */
+export const updateRoles = (id, roles) => {
+  return request({
+    url: `/user-manage/update-role/${id}`,
+    method: 'POST',
+    data: {
+      roles
+    }
+  })
+}
+
+/**
+ * @description 获取指定员工当前角色
+ * @date 16/12/2021
+ * @param {*} id
+ * @return {*}
+ */
+export const userRoles = (id) => {
+  return request({
+    url: `/user-manage/role/${id}`
+  })
+}

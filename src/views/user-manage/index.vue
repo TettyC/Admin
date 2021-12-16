@@ -1,17 +1,18 @@
 <script setup>
-import { ref, onActivated } from 'vue'
+import { ref, watch } from 'vue'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 import Export2Excel from './components/Export2Excel.vue'
+import Roles from './components/Roles.vue'
 
 // 数据相关
 const tableData = ref([])
 const total = ref(0)
 const page = ref(1)
-const size = ref(2)
+const size = ref(10)
 
 // 获取数据
 const getListData = async () => {
@@ -52,6 +53,19 @@ const onShowClick = (id) => {
   router.push(`/user/info/${id}`)
 }
 
+// 角色按钮 点击事件
+const rolesDialogVisible = ref(false)
+const selectedUserId = ref('')
+const onShowRoleClick = (row) => {
+  rolesDialogVisible.value = true
+  selectedUserId.value = row._id
+}
+watch(rolesDialogVisible, (val) => {
+  if (!val) {
+    selectedUserId.value = ''
+  }
+})
+
 // 删除用户
 const i18n = useI18n()
 const onRemoveClick = (row) => {
@@ -68,8 +82,6 @@ const onRemoveClick = (row) => {
     getListData()
   })
 }
-
-onActivated(getListData)
 </script>
 
 <template>
@@ -121,18 +133,18 @@ onActivated(getListData)
           width="300"
         >
           <template #default="{ row }">
-            <el-button
-              type="primary"
-              size="mini"
-              @click="onShowClick(row._id)"
-              >{{ $t('msg.excel.show') }}</el-button
-            >
-            <el-button type="info" size="mini">{{
-              $t('msg.excel.showRole')
-            }}</el-button>
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
-              $t('msg.excel.remove')
-            }}</el-button>
+            <!-- 查看按钮 -->
+            <el-button type="primary" size="mini" @click="onShowClick(row._id)">
+              {{ $t('msg.excel.show') }}
+            </el-button>
+            <!-- 角色按钮 -->
+            <el-button type="info" size="mini" @click="onShowRoleClick(row)">
+              {{ $t('msg.excel.showRole') }}
+            </el-button>
+            <!-- 删除按钮 -->
+            <el-button type="danger" size="mini" @click="onRemoveClick(row)">
+              {{ $t('msg.excel.remove') }}
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -149,6 +161,12 @@ onActivated(getListData)
     </el-card>
 
     <export2-excel v-model="exportToExcelVisible"></export2-excel>
+
+    <roles
+      v-model="rolesDialogVisible"
+      :userId="selectedUserId"
+      @updateRole="getListData"
+    ></roles>
   </div>
 </template>
 
