@@ -41,7 +41,6 @@ const onConfirm = async () => {
     data,
     filename: excelName.value
   })
-  console.log(data)
   closed()
 }
 

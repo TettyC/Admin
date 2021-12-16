@@ -6,7 +6,6 @@ import { watchSwitchLang } from '@/utils/i18n'
 const tableData = ref([])
 const getRoleList = async () => {
   tableData.value = await roleList()
-  console.log(tableData.value)
 }
 getRoleList()
 watchSwitchLang(getRoleList)
