@@ -52,6 +52,7 @@ export default {
         state.tagsViewList.splice(payload.index, 1)
       } else if (payload.type === 'other') {
         state.tagsViewList = state.tagsViewList.splice(payload.index, 1)
+        router.push(state.tagsViewList[0].fullPath)
       } else if (payload.type === 'right') {
         state.tagsViewList.splice(payload.index + 1)
         router.push(state.tagsViewList[state.tagsViewList.length - 1].fullPath)
