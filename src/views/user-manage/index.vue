@@ -88,9 +88,12 @@ const onRemoveClick = (row) => {
   <div class="container">
     <el-card class="header">
       <div>
-        <el-button type="primary" @click="onImportExcelClick">{{
-          $t('msg.excel.importExcel')
-        }}</el-button>
+        <el-button
+          type="primary"
+          @click="onImportExcelClick"
+          v-permission="['importUser']"
+          >{{ $t('msg.excel.importExcel') }}</el-button
+        >
         <el-button type="success" @click="onToExcel">{{
           $t('msg.excel.exportExcel')
         }}</el-button>
@@ -138,11 +141,21 @@ const onRemoveClick = (row) => {
               {{ $t('msg.excel.show') }}
             </el-button>
             <!-- 角色按钮 -->
-            <el-button type="info" size="mini" @click="onShowRoleClick(row)">
+            <el-button
+              type="info"
+              size="mini"
+              @click="onShowRoleClick(row)"
+              v-permission="['distributeRole']"
+            >
               {{ $t('msg.excel.showRole') }}
             </el-button>
             <!-- 删除按钮 -->
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">
+            <el-button
+              type="danger"
+              size="mini"
+              @click="onRemoveClick(row)"
+              v-permission="['removeUser']"
+            >
               {{ $t('msg.excel.remove') }}
             </el-button>
           </template>

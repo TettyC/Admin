@@ -66,7 +66,11 @@ const onConfirm = async () => {
 </script>
 
 <template>
-  <el-dialog :model-value="modelValue" :title="$t('msg.excel.roleDialogTitle')">
+  <el-dialog
+    :model-value="modelValue"
+    :title="$t('msg.excel.roleDialogTitle')"
+    @close="closed"
+  >
     <el-checkbox-group v-model="currentUserRoleList">
       <el-checkbox
         v-for="item in allRoleList"
